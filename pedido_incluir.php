@@ -2,9 +2,9 @@
 
 <?php
 
-	 $nome = $_POST["nome"];
-	 $descricao = $_POST["descricao"];
-	 $preco = $_POST["preco"];
+	 $nome = $_POST["idpedido"];
+	 $descricao = $_POST["idcliente"];
+	
 
 	 $connection = mysql_connect("localhost", "root"); 	
 	 if (!$connection) {
@@ -14,12 +14,12 @@
 	mysql_select_db("Estoque");
 
 
-	$sql = 'INSERT INTO Produto (nome, descricao, preco) VALUES ("'.$nome.'","'.$descricao.'",'.$preco.');';
+	$sql = 'INSERT INTO Pedido (id_produto,id_cliente) VALUES ('.$idpedido.','.$idproduto.');';
 
 	$resultado = mysql_query($sql, $connection);
 
 	mysql_close($connection);
 
-	header('location: produto.php');
+	header('location: pedido.php');
 
 ?>
